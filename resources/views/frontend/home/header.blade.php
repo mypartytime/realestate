@@ -22,7 +22,7 @@
 
                         <div class="sign-box">
                             <a href="{{route('dashboard')}}"><i class="fas fa-user"></i>Dashboard</a>
-                            <a href="{{route('user.logout')}}"><i class="fas fa-user"></i>Logout</a>
+                            <a href="{{route('user.logout')}}"><i class="fas fa-sign-out-alt"></i>Logout</a>
                         </div>
 
                         @else

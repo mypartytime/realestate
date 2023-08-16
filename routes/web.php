@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\PropertyTypeController;
+use App\Http\Controllers\Backend\PropertyController;
 
 // frontend all
 Route::get('/', [UserController::class, 'Index']);
@@ -81,6 +82,15 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::post('/update/amenitie', 'UpdateAmenitie')->name('update.amenitie');
         Route::get('/delete/amenitie/{id}', 'DeleteAmenitie')->name('delete.amenitie'); 
     
+
+    });
+
+    // Property All Route 
+    Route::controller(PropertyController::class)->group(function(){
+
+        Route::get('/all/property', 'AllProperty')->name('all.property'); 
+        Route::get('/add/property', 'AddProperty')->name('add.property'); 
+
 
     });
 

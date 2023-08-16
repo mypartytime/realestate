@@ -22,8 +22,8 @@ class PropertyController extends Controller
 
     public function AddProperty(){
 
-        $propertytype = PropertyType::latest()->get();
-        $amenities = Amenities::latest()->get();
+        $propertytype = PropertyType::orderBy('type_name','asc')->get();
+        $amenities = Amenities::orderBy('amenitis_name','desc')->get();
         $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
         return view('backend.property.add_property',compact('propertytype','amenities','activeAgent'));
 

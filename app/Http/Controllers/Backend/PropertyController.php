@@ -134,6 +134,7 @@ class PropertyController extends Controller
     public function EditProperty($id){
 
         $property = Property::findOrFail($id);
+        $facilities = Facility::where('property_id',$id)->get();
         $type = $property->amenities_id;
         $property_ami = explode(',', $type);
         $multiImage = MultiImage::where('property_id',$id)->get();
@@ -141,7 +142,7 @@ class PropertyController extends Controller
         $amenities = Amenities::latest()->get();
         $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
 
-        return view('backend.property.edit_property',compact('property','propertytype','amenities','activeAgent','property_ami','multiImage'));
+        return view('backend.property.edit_property',compact('property','propertytype','amenities','activeAgent','property_ami','multiImage','facilities'));
 
     }// End Method 
 
@@ -315,6 +316,35 @@ class PropertyController extends Controller
             );
 
         return redirect()->back()->with($notification); 
+    }// End Method 
+
+    public function UpdatePropertyFacilities(Request $request){
+
+        $pid = $request->id;
+
+        if ($request->facility_name == NULL) {
+           return redirect()->back();
+        }else{
+            Facility::where('property_id',$pid)->delete();
+
+          $facilities = Count($request->facility_name); 
+
+           for ($i=0; $i < $facilities; $i++) { 
+               $fcount = new Facility();
+               $fcount->property_id = $pid;
+               $fcount->facility_name = $request->facility_name[$i];
+               $fcount->distance = $request->distance[$i];
+               $fcount->save();
+           } // end for 
+        }
+
+         $notification = array(
+            'message' => 'Property Facility Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification); 
+
     }// End Method 
 
 }

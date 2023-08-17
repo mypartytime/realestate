@@ -371,7 +371,7 @@
             <td>
                 <input type="submit" class="btn btn-primary px-4" value="Update Image" >
 
-                <a href="" class="btn btn-danger" id="delete">Delete </a>
+                <a href="{{route('property.multiimg.delete',$img->id)}}" class="btn btn-danger" id="delete">Delete </a>
             </td>
         </tr>
         @endforeach
@@ -387,6 +387,33 @@
 
 
             </form> 
+
+<!-- Add new multi image form -->
+<form method="post" action="{{ route('store.new.multiimage') }}" id="myForm" enctype="multipart/form-data">
+                @csrf
+
+        <input type="hidden" name="imageid" value="{{ $property->id }}">
+
+<table class="table table-striped">
+ <tbody>
+    <tr>
+        <td>
+            <input type="file" class="form-control" name="multi_img">
+        </td>
+
+        <td>
+            <input type="submit" class="btn btn-info px-4" value="Add Image" >
+        </td>
+    </tr>
+</tbody>
+</table>
+
+</form> 
+<!-- Add new multi image form -->
+
+
+
+
         </div>
           </div>
 

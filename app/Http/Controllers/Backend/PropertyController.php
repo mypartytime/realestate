@@ -268,4 +268,53 @@ class PropertyController extends Controller
 
     }// End Method 
 
+    public function PropertyMultiImageDelete($id){
+        $oldImg = MultiImage::findOrFail($id);
+        unlink($oldImg->photo_name);
+
+        MultiImage::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'รูปภาพถูกลบเรียบร้อยแล้ว',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification); 
+
+    }// End Method 
+
+    public function StoreNewMultiimage(Request $request){
+
+        $new_multi = $request->imageid;
+        $image = $request->file('multi_img');
+
+        // Check if $multiImages is empty
+        if (empty($image)) {
+            // Image is empty or not provided, return with error message
+            $notification = [
+                'message' => 'Image cannot be empty',
+                'alert-type' => 'error'
+            ];
+
+            return redirect()->back()->with($notification);
+        }
+
+        $make_name = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        Image::make($image)->resize(770,520)->save('upload/property/multi-image/'.$make_name);
+        $uploadPath = 'upload/property/multi-image/'.$make_name;
+
+        MultiImage::insert([
+            'property_id' => $new_multi,
+            'photo_name' => $uploadPath,
+            'created_at' => Carbon::now(), 
+        ]);
+
+        $notification = array(
+                'message' => 'Property Multi Image Added Successfully',
+                'alert-type' => 'success'
+            );
+
+        return redirect()->back()->with($notification); 
+    }// End Method 
+
 }

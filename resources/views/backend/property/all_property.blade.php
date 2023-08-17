@@ -43,9 +43,9 @@
                         <td>{{ $item->property_code }}</td> 
                         <td> 
                       @if($item->status == 1)
-                <span class="badge rounded-pill bg-success">Active</span>
+                        <span class="badge rounded-pill bg-success">Active</span>
                       @else
-               <span class="badge rounded-pill bg-danger">InActive</span>
+                        <span class="badge rounded-pill bg-danger">InActive</span>
                       @endif
 
                         </td> 

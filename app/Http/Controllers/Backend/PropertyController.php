@@ -129,4 +129,18 @@ class PropertyController extends Controller
         return redirect()->route('all.property')->with($notification);
 
     }// End Method 
+
+    // Edit
+    public function EditProperty($id){
+
+        $property = Property::findOrFail($id);
+        $type = $property->amenities_id;
+        $property_ami = explode(',', $type);
+        $propertytype = PropertyType::latest()->get();
+        $amenities = Amenities::latest()->get();
+        $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
+
+        return view('backend.property.edit_property',compact('property','propertytype','amenities','activeAgent','property_ami'));
+
+    }// End Method 
 }

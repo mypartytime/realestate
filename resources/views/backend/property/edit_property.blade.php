@@ -344,20 +344,20 @@
                 @csrf
 
 
-<div class="table-responsive">
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Sl</th>
-            <th>Image</th>
-            <th>Change Image </th>
-            <th>Delete </th> 
-        </tr>
-    </thead>
-    <tbody>
+        <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Sl</th>
+                    <th>Image</th>
+                    <th>Change Image </th>
+                    <th>Delete </th> 
+                </tr>
+            </thead>
+            <tbody>
 
-        @foreach($multiImage as $key => $img)
-        <tr>
+                @foreach($multiImage as $key => $img)
+                <tr>
 
              <td>{{ $key+1 }}</td>
 
@@ -382,8 +382,8 @@
 
 
 
-<br><br>
-  <button type="submit" class="btn btn-primary">Save Changes </button>
+
+  
 
 
             </form> 

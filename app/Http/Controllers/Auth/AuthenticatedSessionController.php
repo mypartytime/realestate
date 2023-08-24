@@ -35,7 +35,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         $notification = array(
-            'message' => 'User '.$username.' Login Successfully',
+            'message' => 'คุณ '.$username.' ทำการเข้าสู่ระบบเรียบร้อยแล้ว',
             'alert-type' => 'info'
         ); 
 

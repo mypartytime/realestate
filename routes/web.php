@@ -9,6 +9,8 @@ use App\Http\Controllers\Backend\PropertyTypeController;
 use App\Http\Controllers\Backend\PropertyController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 
+use App\Http\Controllers\Agent\AgentPropertyController;
+
 // frontend all
 Route::get('/', [UserController::class, 'Index']);
 
@@ -140,6 +142,19 @@ Route::middleware(['auth','role:admin'])->group(function(){
     });
 
 }); // end admin group
+
+/// Agent Group Middleware 
+Route::middleware(['auth','role:agent'])->group(function(){
+
+    // Agent All Property  
+    Route::controller(AgentPropertyController::class)->group(function(){
+
+    Route::get('/agent/all/property', 'AgentAllProperty')->name('agent.all.property'); 
+
+
+    });
+
+}); // End Group Agent Middleware
 
 
 

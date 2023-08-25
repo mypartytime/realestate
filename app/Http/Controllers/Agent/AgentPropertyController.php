@@ -391,4 +391,8 @@ public function AgentUpdatePropertyThambnail(Request $request){
 
     }// End Method  
 
+    public function BuyPackage(){
+        return view('agent.package.buy_package');
+    }// End Method 
+
 }

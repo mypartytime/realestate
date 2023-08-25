@@ -125,6 +125,8 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
         Route::post('/inactive/property', 'InactiveProperty')->name('inactive.property');
         Route::post('/active/property', 'ActiveProperty')->name('active.property');
+        Route::get('/admin/package/history', 'AdminPackageHistory')->name('admin.package.history');
+        Route::get('/package/invoice/{id}', 'PackageInvoice')->name('package.invoice');
     });
 
      // Agent All Route from admin 

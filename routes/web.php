@@ -175,6 +175,8 @@ Route::middleware(['auth','role:agent'])->group(function(){
         Route::post('/store/professional/plan', 'StoreProfessionalPlan')->name('store.professional.plan');
         Route::get('/package/history', 'PackageHistory')->name('package.history');
 
+        Route::get('/agent/package/invoice/{id}', 'AgentPackageInvoice')->name('agent.package.invoice');
+
     });
 
 }); // End Group Agent Middleware

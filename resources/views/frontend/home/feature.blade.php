@@ -26,7 +26,7 @@ $property = App\Models\Property::where('status','1')->where('featured','1')->lim
 
            @if($item->agent_id == Null)
 
-     <figure class="author-thumb"><img src="{{ url('upload/ariyan.jpg') }}" alt=""></figure>
+     <figure class="author-thumb"><img src="{{ url('upload/admin.png') }}" alt=""></figure>
                                 <h6>Admin </h6>
 
            @else
@@ -46,7 +46,7 @@ $property = App\Models\Property::where('status','1')->where('featured','1')->lim
                             </div>
                             <ul class="other-option pull-right clearfix">
                                 <li><a href="property-details.html"><i class="icon-12"></i></a></li>
-                                <li><a href="property-details.html"><i class="icon-13"></i></a></li>
+                                <li><a aria-label="Add To Wishlist" class="action-btn" id="{{ $item->id }}" onclick="addToWishList(this.id)" ><i class="icon-13"></i></a></li>
                             </ul>
                         </div>
                         <p>{{ $item->short_descp }}</p>

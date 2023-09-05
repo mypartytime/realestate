@@ -282,8 +282,14 @@ Route::controller(AgentPropertyController::class)->group(function(){
 // Wishlist Add Route 
      Route::post('/add-to-wishList/{property_id}', [WishlistController::class, 'AddToWishList']); 
 
-  // Compare Add Route 
+// Compare Add Route 
      Route::post('/add-to-compare/{property_id}', [CompareController::class, 'AddToCompare']);  
 
-  // Send Message from Property Details Page 
+// Send Message from Property Details Page 
      Route::post('/property/message', [IndexController::class, 'PropertyMessage'])->name('property.message');
+
+// Agent Details Page in Frontend 
+     Route::get('/agent/details/{id}', [IndexController::class, 'AgentDetails'])->name('agent.details');
+
+// Send Message from Agent Details Page 
+     Route::post('/agent/details/message', [IndexController::class, 'AgentDetailsMessage'])->name('agent.details.message');

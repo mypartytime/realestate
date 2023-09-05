@@ -17,6 +17,7 @@ use App\Models\PackagePlan;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 use App\Models\PropertyMessage;
+use App\Models\State;
 
 class PropertyController extends Controller
 {
@@ -32,7 +33,8 @@ class PropertyController extends Controller
         $propertytype = PropertyType::orderBy('type_name','asc')->get();
         $amenities = Amenities::orderBy('amenitis_name','desc')->get();
         $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
-        return view('backend.property.add_property',compact('propertytype','amenities','activeAgent'));
+        $pstate = State::latest()->get();
+        return view('backend.property.add_property',compact('propertytype','amenities','activeAgent','pstate'));
 
     } // End Method 
 
@@ -145,8 +147,9 @@ class PropertyController extends Controller
         $propertytype = PropertyType::latest()->get();
         $amenities = Amenities::latest()->get();
         $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
+        $pstate = State::latest()->get();
 
-        return view('backend.property.edit_property',compact('property','propertytype','amenities','activeAgent','property_ami','multiImage','facilities'));
+        return view('backend.property.edit_property',compact('property','propertytype','amenities','activeAgent','property_ami','multiImage','facilities','pstate'));
 
     }// End Method 
 

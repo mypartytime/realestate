@@ -178,14 +178,14 @@
             <div class="mb-3">
                 <label class="form-label">Latitude</label>
                 <input type="text" name="latitude" class="form-control" >
-                <a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">Go here to get Latitude from address</a>
+                <a href="https://www.booster4web.com/map-location/" target="_blank">Go here to get Latitude from address</a>
             </div>
         </div><!-- Col -->
         <div class="col-sm-6">
             <div class="mb-3">
                 <label class="form-label">Longitude</label>
                 <input type="text" name="longitude" class="form-control" >
-                 <a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">Go here to get Longitude from address</a>
+                 <a href="https://www.booster4web.com/map-location/" target="_blank">Go here to get Longitude from address</a>
             </div>
         </div><!-- Col -->
     </div><!-- Row -->

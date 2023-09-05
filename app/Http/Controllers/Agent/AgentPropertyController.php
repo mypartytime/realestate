@@ -18,6 +18,8 @@ use DB;
 use App\Models\PackagePlan;
 use Barryvdh\DomPDF\Facade\Pdf;
 
+use App\Models\PropertyMessage;
+
 class AgentPropertyController extends Controller
 {
     public function AgentAllProperty(){
@@ -514,5 +516,26 @@ public function AgentUpdatePropertyThambnail(Request $request){
 
 
     }// End Method 
+
+    public function AgentPropertyMessage(){
+
+        $id = Auth::user()->id;
+        $usermsg = PropertyMessage::where('agent_id',$id)->get();
+        return view('agent.message.all_message',compact('usermsg'));
+
+    }// End Method  
+
+    public function AgentMessageDetails($id){
+
+        
+        
+        $uid = Auth::user()->id;
+        $usermsg = PropertyMessage::where('agent_id',$uid)->get();
+
+        $msgdetails = PropertyMessage::findOrFail($id);
+        return view('agent.message.message_details',compact('usermsg','msgdetails'));
+
+    }// End Method  
+    
 
 }

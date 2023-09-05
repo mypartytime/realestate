@@ -188,6 +188,8 @@ Route::controller(PropertyController::class)->group(function(){
 
        Route::get('/package/invoice/{id}', 'PackageInvoice')->name('package.invoice');
 
+       Route::get('/admin/property/message/', 'AdminPropertyMessage')->name('admin.property.message');
+
 });
 
 
@@ -243,6 +245,10 @@ Route::controller(AgentPropertyController::class)->group(function(){
       Route::get('/agent/details/property/{id}', 'AgentDetailsProperty')->name('agent.details.property'); 
 
       Route::get('/agent/delete/property/{id}', 'AgentDeleteProperty')->name('agent.delete.property');  
+
+      Route::get('/agent/property/message/', 'AgentPropertyMessage')->name('agent.property.message');  
+
+      Route::get('/agent/message/details/{id}', 'AgentMessageDetails')->name('agent.message.details');
 
 });
 

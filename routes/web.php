@@ -318,3 +318,9 @@ Route::controller(AgentPropertyController::class)->group(function(){
 
 // Get State Details Data 
      Route::get('/state/details/{id}', [IndexController::class, 'StateDetails'])->name('state.details');
+
+// Home Page Buy Seach Option
+     Route::post('/buy/property/search', [IndexController::class, 'BuyPropertySeach'])->name('buy.property.search');
+
+// Home Page Rent Seach Option
+     Route::post('/rent/property/search', [IndexController::class, 'RentPropertySeach'])->name('rent.property.search');

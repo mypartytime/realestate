@@ -10,10 +10,10 @@
             </div>
             <div class="auto-container">
                 <div class="content-box clearfix">
-                    <h1>{{ $bstate->state_name }} Property </h1>
+                    <h1>  Property Search </h1>
                     <ul class="bread-crumb clearfix">
                         <li><a href="index.html">Home</a></li>
-                        <li>{{ $bstate->state_name }} Property List</li>
+                        <li>Property Search</li>
                     </ul>
                 </div>
             </div>
@@ -106,7 +106,7 @@
                                     <h5>Status Of Property</h5>
                                 </div>
                                 <ul class="category-list clearfix">
-       <li><a href="{{ route('rent.property') }}">For Rent <span>(200)</span></a></li>
+    <li><a href="{{ route('rent.property') }}">For Rent <span>(200)</span></a></li>
    <li><a href="{{ route('buy.property') }}">For Buy <span>(700)</span></a></li>
                                 </ul>
                             </div>
@@ -195,9 +195,14 @@
                                 </div>
 
                             </div>
-        <div class="pagination-wrapper">
-
-        </div>
+                            <div class="pagination-wrapper">
+                                <ul class="pagination clearfix">
+                                    <li><a href="property-list.html" class="current">1</a></li>
+                                    <li><a href="property-list.html">2</a></li>
+                                    <li><a href="property-list.html">3</a></li>
+                                    <li><a href="property-list.html"><i class="fas fa-angle-right"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -68,7 +68,7 @@
 </li>
          <li><a href="{{ route('agent.login') }}"><span>Agent </span></a> </li>       
              
- <li><a href="{{ url('/') }}"><span>Blog  </span></a> </li>
+         <li><a href="{{ route('blog.list') }}"><span>Blog  </span></a> </li>
 
 
      <li><a href="contact.html"><span>Contact</span></a></li> 
@@ -100,7 +100,7 @@
                             </nav>
                         </div>
                         <div class="btn-box">
-                            <a href="index.html" class="theme-btn btn-one"><span>+</span>Add Listing</a>
+                            <a href="" class="theme-btn btn-one"><span>+</span>Add Listing</a>
                         </div>
                     </div>
                 </div>

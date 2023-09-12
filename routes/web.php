@@ -17,6 +17,7 @@ use App\Http\Controllers\Frontend\CompareController;
 
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\SettingController;
    
 /*   
 |--------------------------------------------------------------------------
@@ -262,7 +263,7 @@ Route::controller(BlogController::class)->group(function(){
 Route::controller(SettingController::class)->group(function(){
 
      Route::get('/smtp/setting', 'SmtpSetting')->name('smtp.setting'); 
-
+     Route::post('/update/smpt/setting', 'UpdateSmtpSetting')->name('update.smtp.setting'); 
 
 });
 

@@ -19,6 +19,7 @@ use App\Models\PackagePlan;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 use App\Models\PropertyMessage;
+use App\Models\Schedule;
 
 class AgentPropertyController extends Controller
 {
@@ -536,6 +537,40 @@ public function AgentUpdatePropertyThambnail(Request $request){
         return view('agent.message.message_details',compact('usermsg','msgdetails'));
 
     }// End Method  
+
+    public function AgentScheduleRequest(){
+
+        $id = Auth::user()->id;
+        $usermsg = Schedule::where('agent_id',$id)->get();
+        return view('agent.schedule.schedule_request',compact('usermsg'));
+
+    }// End Method  
+
+    public function AgentDetailsSchedule($id){
+
+        $schedule = Schedule::findOrFail($id);
+        return view('agent.schedule.schedule_details',compact('schedule'));
+
+    } // End Method 
+
+    public function AgentUpdateSchedule(Request $request){
+
+        $sid = $request->id;
+
+        Schedule::findOrFail($sid)->update([
+            'status' => '1',
+
+        ]);
+
+         $notification = array(
+            'message' => 'You have Confirm Schedule Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('agent.schedule.request')->with($notification);
+
+
+    }// End Method 
     
 
 }

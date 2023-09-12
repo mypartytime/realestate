@@ -28,7 +28,7 @@ $property = App\Models\Property::where('status','1')->where('hot','1')->limit(3)
 
            @if($item->agent_id == Null)
 
-     <figure class="author-thumb"><img src="{{ url('upload/admin.png') }}" alt=""></figure>
+     <figure class="author-thumb"><img src="{{ url('upload/admin.jpg') }}" alt=""></figure>
                                 <h6>Admin </h6>
 
            @else

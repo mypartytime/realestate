@@ -14,6 +14,8 @@ use App\Http\Controllers\Agent\AgentPropertyController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Frontend\CompareController;
+
+use App\Http\Controllers\Backend\TestimonialController;
    
 /*   
 |--------------------------------------------------------------------------
@@ -221,6 +223,18 @@ Route::controller(StateController::class)->group(function(){
 
 });
 
+// Testimonials  All Route 
+Route::controller(TestimonialController::class)->group(function(){
+
+     Route::get('/all/testimonials', 'AllTestimonials')->name('all.testimonials'); 
+     Route::get('/add/testimonials', 'AddTestimonials')->name('add.testimonials');
+     Route::post('/store/testimonials', 'StoreTestimonials')->name('store.testimonials');
+     Route::get('/edit/testimonials/{id}', 'EditTestimonials')->name('edit.testimonials');
+     Route::post('/update/testimonials', 'UpdateTestimonials')->name('update.testimonials');
+     Route::get('/delete/testimonials/{id}', 'DeleteTestimonials')->name('delete.testimonials');
+
+});
+
 
 
 }); // End Group Admin Middleware
@@ -324,3 +338,6 @@ Route::controller(AgentPropertyController::class)->group(function(){
 
 // Home Page Rent Seach Option
      Route::post('/rent/property/search', [IndexController::class, 'RentPropertySeach'])->name('rent.property.search');
+
+// All Property Seach Option
+     Route::post('/all/property/search', [IndexController::class, 'AllPropertySeach'])->name('all.property.search');

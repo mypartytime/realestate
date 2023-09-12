@@ -21,6 +21,9 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\PropertyMessage;
 use App\Models\Schedule;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ScheduleMail;
+
 class AgentPropertyController extends Controller
 {
     public function AgentAllProperty(){
@@ -561,6 +564,20 @@ public function AgentUpdatePropertyThambnail(Request $request){
             'status' => '1',
 
         ]);
+
+        //// Start Send Email 
+
+            $sendmail = Schedule::findOrFail($sid);
+
+            $data = [
+                    'tour_date' => $sendmail->tour_date,
+                    'tour_time' => $sendmail->tour_time,
+            ];
+
+            Mail::to($request->email)->send(new ScheduleMail($data));
+
+
+        /// End Send Email 
 
          $notification = array(
             'message' => 'You have Confirm Schedule Successfully',

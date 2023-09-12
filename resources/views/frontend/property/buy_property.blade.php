@@ -1,5 +1,8 @@
 @extends('frontend.frontend_dashboard')
 @section('main')
+@section('title')
+  Buy Property Easy RealEstate  
+@endsection
 
 
  <!--Page Title-->

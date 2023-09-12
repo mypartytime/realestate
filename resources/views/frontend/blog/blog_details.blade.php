@@ -1,5 +1,8 @@
 @extends('frontend.frontend_dashboard')
 @section('main')
+@section('title')
+  Blog | Easy RealEstate  
+@endsection
 
 
         <!--Page Title-->
@@ -12,7 +15,7 @@
                 <div class="content-box clearfix">
                     <h1>  {{ $blog->post_title }}</h1>
                     <ul class="bread-crumb clearfix">
-                        <li><a href="{{route('/')}}">Home</a></li>
+                        <li><a href="{{url('/')}}">Home</a></li>
                         <li>{{ $blog->post_title }}</li>
                     </ul>
                 </div>

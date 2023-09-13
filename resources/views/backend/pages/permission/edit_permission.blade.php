@@ -33,6 +33,7 @@
                <select name="group_name" class="form-select" id="exampleFormControlSelect1">
                 <option selected="" disabled="">Select Group</option>
                 <option value="admin"{{ $permission->group_name == 'admin' ? 'selected' : '' }}>Admin </option>
+                <option value="dashboard"{{ $permission->group_name == 'dashboard' ? 'selected' : '' }}>Dashboard </option>
                 <option value="type" {{ $permission->group_name == 'type' ? 'selected' : '' }}>Property Type</option>
                 <option value="state" {{ $permission->group_name == 'state' ? 'selected' : '' }}>State</option> 
                 <option value="amenities" {{ $permission->group_name == 'amenities' ? 'selected' : '' }}>Amenities</option> 

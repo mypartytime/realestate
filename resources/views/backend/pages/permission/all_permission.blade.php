@@ -37,8 +37,12 @@
                         <td>{{ $item->name }}</td> 
                         <td>{{ $item->group_name }}</td> 
                         <td>
+                        @if(Auth::user()->can('edit.role')) 
        <a href="{{ route('edit.permission',$item->id) }}" class="btn btn-warning"> Edit </a>
+       @endif
+       @if(Auth::user()->can('delete.role')) 
        <a href="{{ route('delete.permission',$item->id) }}" class="btn btn-danger" id="delete"> Delete  </a>
+       @endif
                         </td> 
                       </tr>
                      @endforeach

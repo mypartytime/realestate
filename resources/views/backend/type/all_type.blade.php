@@ -1,11 +1,12 @@
 @extends('admin.admin_dashboard')
 @section('admin')
 
+
 <div class="page-content">
 
 				<nav class="page-breadcrumb">
 					<ol class="breadcrumb">
-	  <a href="{{route('add.type')}}" class="btn btn-inverse-info"> Add Property Type  </a>
+	  <a href="{{ route('add.type') }}" class="btn btn-inverse-info"> Add Property Type  </a>
 					</ol>
 				</nav>
 
@@ -14,7 +15,7 @@
             <div class="card">
               <div class="card-body">
                 <h6 class="card-title">Property Type All </h6>
-
+               
                 <div class="table-responsive">
                   <table id="dataTableExample" class="table">
                     <thead>
@@ -31,9 +32,16 @@
                         <td>{{ $key+1 }}</td>
                         <td>{{ $item->type_name }}</td>
                         <td>{{ $item->type_icon }}</td>
+         
+
                         <td>
+
+        @if(Auth::user()->can('edit.type'))                   
        <a href="{{ route('edit.type',$item->id) }}" class="btn btn-inverse-warning"> Edit </a>
+       @endif
+        @if(Auth::user()->can('delete.type'))
        <a href="{{ route('delete.type',$item->id) }}" class="btn btn-inverse-danger" id="delete"> Delete  </a>
+        @endif
                         </td> 
                       </tr>
                      @endforeach
@@ -46,6 +54,9 @@
 				</div>
 
 			</div>
+
+
+
 
 
 

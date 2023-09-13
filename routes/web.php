@@ -16,6 +16,7 @@ use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/user/password/update', [UserController::class, 'UserPasswordUpdate'])->name('user.password.update');
 
     Route::get('/user/schedule/request', [UserController::class, 'UserScheduleRequest'])->name('user.schedule.request');
+
+    Route::get('/live/chat', [UserController::class, 'LiveChat'])->name('live.chat');
 
     // User WishlistAll Route
     Route::controller(WishlistController::class)->group(function () {
@@ -279,9 +282,9 @@ Route::controller(RoleController::class)->group(function(){
     Route::post('/update/roles', 'UpdateRoles')->name('update.roles');
     Route::get('/delete/roles/{id}', 'DeleteRoles')->name('delete.roles')->middleware('permission:delete.role');  
 
-    Route::get('/add/roles/permission', 'AddRolesPermission')->name('add.roles.permission'); 
+    Route::get('/add/roles/permission', 'AddRolesPermission')->name('add.roles.permission')->middleware('permission:edit.role'); 
     Route::post('/role/permission/store', 'RolePermissionStore')->name('role.permission.store'); 
-    Route::get('/all/roles/permission', 'AllRolesPermission')->name('all.roles.permission'); 
+    Route::get('/all/roles/permission', 'AllRolesPermission')->name('all.roles.permission')->middleware('permission:edit.role'); 
 
     Route::get('/admin/edit/roles/{id}', 'AdminEditRoles')->name('admin.edit.roles');
     Route::post('/admin/roles/update/{id}', 'AdminRolesUpdate')->name('admin.roles.update'); 
@@ -413,3 +416,12 @@ Route::post('/reply/message', [BlogController::class, 'ReplyMessage'])->name('re
 
 // Schedule Message Request Route
 Route::post('/store/schedule', [IndexController::class, 'StoreSchedule'])->name('store.schedule');
+
+// Chat Post Request Route 
+Route::post('/send-message', [ChatController::class, 'SendMsg'])->name('send.msg');
+Route::get('/user-all', [ChatController::class, 'GetAllUsers']);
+
+Route::get('/user-message/{id}', [ChatController::class, 'UserMsgById']);
+
+
+Route::get('/agent/live/chat', [ChatController::class, 'AgentLiveChat'])->name('agent.live.chat');

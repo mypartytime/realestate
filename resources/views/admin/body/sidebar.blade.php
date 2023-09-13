@@ -31,7 +31,7 @@
                   <a href="{{ route('all.type') }}" class="nav-link">All Type</a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('add.type') }}" class="nav-link">Add Type</a>
+                  <a href="pages/email/read.html" class="nav-link">Add Type</a>
                 </li>
                 
               </ul>
@@ -233,10 +233,10 @@
                   <a href="{{ route('all.permission') }}" class="nav-link">All Permission</a>
                 </li>
                 <li class="nav-item">
-                <a href="{{ route('all.roles') }}" class="nav-link">All Roles </a>
+                  <a href="{{ route('all.roles') }}" class="nav-link">All Roles </a>
                 </li>
 
-                <li class="nav-item">
+                 <li class="nav-item">
                   <a href="{{ route('add.roles.permission') }}" class="nav-link">Role in Permission </a>
                 </li>
 
@@ -244,6 +244,25 @@
                   <a href="{{ route('all.roles.permission') }}" class="nav-link">All Role in Permission </a>
                 </li>
                 
+              </ul>
+            </div>
+          </li>
+
+
+             <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#admin" role="button" aria-expanded="false" aria-controls="admin">
+              <i class="link-icon" data-feather="anchor"></i>
+              <span class="link-title">Manage Admin User</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="admin">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+                  <a href="{{ route('all.admin') }}" class="nav-link">All Admin</a>
+                </li>
+                <li class="nav-item">
+                <a href="{{ route('add.admin') }}" class="nav-link">Add Admin </a>
+                </li> 
               </ul>
             </div>
           </li>

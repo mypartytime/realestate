@@ -20,9 +20,9 @@ class SettingController extends Controller
 
     public function UpdateSmtpSetting(Request $request){
 
-        $stmp_id = $request->id;
+        $smtp_id = $request->id;
 
-        SmtpSetting::findOrFail($stmp_id)->update([
+        SmtpSetting::findOrFail($smtp_id)->update([
 
                 'mailer' => $request->mailer,
                 'host' => $request->host,

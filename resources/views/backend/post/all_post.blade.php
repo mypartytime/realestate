@@ -6,7 +6,7 @@
 
 				<nav class="page-breadcrumb">
 					<ol class="breadcrumb">
-	  <a href="{{ route('add.post') }}" class="btn btn-inverse-info"> Add Post    </a>
+	  <a href="{{ route('add.post') }}" class="btn btn-info"> Add Post    </a>
 					</ol>
 				</nav>
 
@@ -35,8 +35,8 @@
                         <td>{{ $item['cat']['category_name'] }}</td>
                         <td><img src="{{ asset($item->post_image) }}" style="width:70px;height: 40px;"> </td>
                         <td>
-       <a href="{{ route('edit.post',$item->id) }}" class="btn btn-inverse-warning"> Edit </a>
-       <a href="{{ route('delete.post',$item->id) }}" class="btn btn-inverse-danger" id="delete"> Delete  </a>
+       <a href="{{ route('edit.post',$item->id) }}" class="btn btn-warning"> Edit </a>
+       <a href="{{ route('delete.post',$item->id) }}" class="btn btn-danger" id="delete"> Delete  </a>
                         </td> 
                       </tr>
                      @endforeach

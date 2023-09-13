@@ -7,7 +7,7 @@
 				<nav class="page-breadcrumb">
 					<ol class="breadcrumb">
 	  
-    <button type="button" class="btn btn-inverse-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Add Category
 </button>
 					</ol>
@@ -37,11 +37,11 @@
                         <td>{{ $item->category_slug }}</td>
                         <td>
          
-  <button type="button" class="btn btn-inverse-warning" data-bs-toggle="modal" data-bs-target="#catedit" id="{{ $item->id }}" onclick="categoryEdit(this.id)" > 
+  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#catedit" id="{{ $item->id }}" onclick="categoryEdit(this.id)" > 
  Edit
 </button>
 
-       <a href="{{ route('delete.blog.category',$item->id) }}" class="btn btn-inverse-danger" id="delete"> Delete  </a>
+       <a href="{{ route('delete.blog.category',$item->id) }}" class="btn btn-danger" id="delete"> Delete  </a>
                         </td> 
                       </tr>
                      @endforeach

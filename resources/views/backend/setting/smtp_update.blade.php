@@ -33,7 +33,7 @@
 
 
                         <div class="form-group mb-3">
- <label for="exampleInputEmail1" class="form-label">Post   </label>
+ <label for="exampleInputEmail1" class="form-label">Port   </label>
       <input type="text" name="post" class="form-control" value="{{ $setting->post }}" > 
                 </div>
 

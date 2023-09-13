@@ -35,7 +35,7 @@
                         <td>{{ $item['user']['name'] }}</td>
                          <td>{{ $item->subject }}</td>
                         <td>
-                        <a href="{{ route('admin.comment.reply',$item->id) }}" class="btn btn-inverse-warning"> Reply </a>
+                        <a href="{{ route('admin.comment.reply',$item->id) }}" class="btn btn-warning"> Reply </a>
                         </td> 
                       </tr>
                      @endforeach

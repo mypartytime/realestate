@@ -240,7 +240,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     Route::controller(SettingController::class)->group(function () {
 
         Route::get('/smtp/setting', 'SmtpSetting')->name('smtp.setting');
-        Route::post('/update/smpt/setting', 'UpdateSmtpSetting')->name('update.smtp.setting');
+        Route::post('/update/smpt/setting', 'UpdateSmtpSetting')->name('update.smtp.setting')->middleware('permission:edit.smtp');
 
     });
 
@@ -248,8 +248,8 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     Route::controller(SettingController::class)->group(function () {
 
         Route::get('/site/setting', 'SiteSetting')->name('site.setting');
-        Route::post('/update/smpt/setting', 'UpdateSmtpSetting')->name('update.smpt.setting');
-        Route::post('/update/site/setting', 'UpdateSiteSetting')->name('update.site.setting');
+        Route::post('/update/smpt/setting', 'UpdateSmtpSetting')->name('update.smtp.setting')->middleware('permission:edit.smtp');
+        Route::post('/update/site/setting', 'UpdateSiteSetting')->name('update.site.setting')->middleware('permission:edit.site');
 
     });
 
@@ -259,9 +259,9 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/all/permission', 'AllPermission')->name('all.permission');
         Route::get('/add/permission', 'AddPermission')->name('add.permission');
         Route::post('/store/permission', 'StorePermission')->name('store.permission'); 
-        Route::get('/edit/permission/{id}', 'EditPermission')->name('edit.permission');
+        Route::get('/edit/permission/{id}', 'EditPermission')->name('edit.permission')->middleware('permission:edit.role');
         Route::post('/update/permission', 'UpdatePermission')->name('update.permission');
-        Route::get('/delete/permission/{id}', 'DeletePermission')->name('delete.permission');  
+        Route::get('/delete/permission/{id}', 'DeletePermission')->name('delete.permission')->middleware('permission:delete.role');  
 
         Route::get('/import/permission', 'ImportPermission')->name('import.permission');
         Route::get('/export', 'Export')->name('export');
@@ -272,20 +272,20 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     // Roles All Route 
 Route::controller(RoleController::class)->group(function(){
 
-    Route::get('/all/roles', 'AllRoles')->name('all.roles')->middleware('permission:all.roll'); 
-    Route::get('/add/roles', 'AddRoles')->name('add.roles')->middleware('permission:add.roll');
+    Route::get('/all/roles', 'AllRoles')->name('all.roles')->middleware('permission:all.role'); 
+    Route::get('/add/roles', 'AddRoles')->name('add.roles')->middleware('permission:add.role');
     Route::post('/store/roles', 'StoreRoles')->name('store.roles'); 
-    Route::get('/edit/roles/{id}', 'EditRoles')->name('edit.roles')->middleware('permission:edit.roll');
+    Route::get('/edit/roles/{id}', 'EditRoles')->name('edit.roles')->middleware('permission:edit.role');
     Route::post('/update/roles', 'UpdateRoles')->name('update.roles');
-    Route::get('/delete/roles/{id}', 'DeleteRoles')->name('delete.roles')->middleware('permission:delete.roll');  
+    Route::get('/delete/roles/{id}', 'DeleteRoles')->name('delete.roles')->middleware('permission:delete.role');  
 
-    Route::get('/add/roles/permission', 'AddRolesPermission')->name('add.roles.permission')->middleware('permission:add.roll'); 
+    Route::get('/add/roles/permission', 'AddRolesPermission')->name('add.roles.permission'); 
     Route::post('/role/permission/store', 'RolePermissionStore')->name('role.permission.store'); 
-    Route::get('/all/roles/permission', 'AllRolesPermission')->name('all.roles.permission')->middleware('permission:all.roll'); 
+    Route::get('/all/roles/permission', 'AllRolesPermission')->name('all.roles.permission'); 
 
-    Route::get('/admin/edit/roles/{id}', 'AdminEditRoles')->name('admin.edit.roles')->middleware('permission:edit.roll');
+    Route::get('/admin/edit/roles/{id}', 'AdminEditRoles')->name('admin.edit.roles');
     Route::post('/admin/roles/update/{id}', 'AdminRolesUpdate')->name('admin.roles.update'); 
-    Route::get('/admin/delete/roles/{id}', 'AdminDeleteRoles')->name('admin.delete.roles')->middleware('permission:delete.roll');
+    Route::get('/admin/delete/roles/{id}', 'AdminDeleteRoles')->name('admin.delete.roles');
     
 
 });

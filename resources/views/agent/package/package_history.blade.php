@@ -7,7 +7,7 @@
 
 				<nav class="page-breadcrumb">
 					<ol class="breadcrumb">
-	  <a href="{{ route('agent.add.property') }}" class="btn btn-inverse-info"> Add Property    </a>
+	  <a href="{{ route('agent.add.property') }}" class="btn btn-info"> Add Property    </a>
 					</ol>
 				</nav>
 
@@ -40,7 +40,7 @@
                         <td>{{ $item->package_amount }}</td> 
                         <td>{{ $item->created_at->format('l d M Y') }}</td> 
                         <td> 
-       <a href="{{ route('agent.package.invoice',$item->id) }}" class="btn btn-inverse-warning" title="Download"> <i data-feather="download"></i> </a> 
+       <a href="{{ route('agent.package.invoice',$item->id) }}" class="btn btn-warning" title="Download"> <i data-feather="download"></i> </a> 
 
                         </td> 
                       </tr>

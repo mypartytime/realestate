@@ -6,7 +6,7 @@
 
 				<nav class="page-breadcrumb">
 					<ol class="breadcrumb">
-	  <a href="{{ route('add.property') }}" class="btn btn-inverse-info"> Add Property    </a>
+	  <a href="{{ route('add.property') }}" class="btn btn-info"> Add Property    </a>
 					</ol>
 				</nav>
 
@@ -50,9 +50,9 @@
 
                         </td> 
                         <td>
-       <a href="{{ route('details.property',$item->id) }}" class="btn btn-inverse-info" title="Details"> <i data-feather="eye"></i> </a>
-       <a href="{{ route('edit.property',$item->id) }}" class="btn btn-inverse-warning"> Edit </a>
-       <a href="{{ route('delete.property',$item->id) }}" class="btn btn-inverse-danger" id="delete"> Delete  </a>
+       <a href="{{ route('details.property',$item->id) }}" class="btn btn-info" title="Details"> <i data-feather="eye"></i> </a>
+       <a href="{{ route('edit.property',$item->id) }}" class="btn btn-warning"> Edit </a>
+       <a href="{{ route('delete.property',$item->id) }}" class="btn btn-danger" id="delete"> Delete  </a>
                         </td> 
                       </tr>
                      @endforeach

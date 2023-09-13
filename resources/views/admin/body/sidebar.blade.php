@@ -268,7 +268,7 @@
             </a>
             <div class="collapse" id="advancedUI">
               <ul class="nav sub-menu">
-              @if(Auth::user()->can('all.role'))
+              
                 <li class="nav-item">
                   <a href="{{ route('all.permission') }}" class="nav-link">All Permission</a>
                 </li>
@@ -284,7 +284,7 @@
                 <li class="nav-item">
                   <a href="{{ route('all.roles.permission') }}" class="nav-link">All Role in Permission </a>
                 </li>
-              @endif
+              
               </ul>
             </div>
           </li>

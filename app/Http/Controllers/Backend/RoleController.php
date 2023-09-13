@@ -223,5 +223,47 @@ public function AllRolesPermission(){
 
 }// End Method 
 
+public function AdminEditRoles($id){
+
+    $role = Role::findOrFail($id);
+    $permissions = Permission::all();
+    $permission_groups = User::getpermissionGroups();
+    return view('backend.pages.rolesetup.edit_roles_permission',compact('role','permissions','permission_groups'));
+
+}// End Method 
+
+public function AdminRolesUpdate(Request $request, $id){
+
+    $role = Role::findOrFail($id);
+    $permissions = $request->permission;
+
+    if (!empty($permissions)) {
+        $role->syncPermissions($permissions);
+    }
+
+    $notification = array(
+        'message' => 'Role Permission Updated Successfully',
+        'alert-type' => 'success'
+    );
+
+    return redirect()->route('all.roles.permission')->with($notification);
+
+}// End Method 
+
+public function AdminDeleteRoles($id){
+
+    $role = Role::findOrFail($id);
+    if (!is_null($role)) {
+        $role->delete();
+    }
+
+    $notification = array(
+        'message' => 'Role Permission Deleted Successfully',
+        'alert-type' => 'success'
+    );
+
+    return redirect()->back()->with($notification);
+
+}// End Method
     
 }
